@@ -59,5 +59,6 @@ kubeup(){
 }
 sampah() {
   rm -rfv "$HOME/.config/VSCodium/Cache"
+  rm -rfv ./node_modules/**/**/.cache/**
   ln -s /tmp/picobug "$HOME/.config/VSCodium/Cache"
 }
