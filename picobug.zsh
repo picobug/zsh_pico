@@ -66,6 +66,7 @@ sampah() {
 simple_cache() {
   if [[ $1 ]]
   then
+      rm -rfv "./$1"
       mkdir -p "/tmp/picobug/$1"
       ln -s "/tmp/picobug/$1" "./$1"
   fi 
