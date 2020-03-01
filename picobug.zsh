@@ -62,3 +62,11 @@ sampah() {
   rm -rfv ./node_modules/**/**/.cache/**
   ln -s /tmp/picobug "$HOME/.config/VSCodium/Cache"
 }
+
+simple_cache() {
+  if [[ $1 ]]
+  then
+      mkdir -p "/tmp/picobug/$1"
+      ln -s "/tmp/picobug/$1" $1
+  fi 
+}
