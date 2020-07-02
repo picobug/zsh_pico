@@ -58,9 +58,9 @@ kubeup(){
   curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl ~/.bin/kubectl
 }
 sampah() {
-  rm -rfv "$HOME/.config/VSCodium/Cache"
+  rm -rfv "$HOME/.config/Code/Cache"
   rm -rfv ./node_modules/**/**/.cache/**
-  ln -s /tmp/picobug "$HOME/.config/VSCodium/Cache"
+  ln -s /tmp/picobug "$HOME/.config/Code/Cache"
 }
 
 simple_cache() {
