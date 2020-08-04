@@ -37,6 +37,9 @@ modiar(){
 mampus(){
   find . -name "$1" -type d -prune -exec rm -rfv '{}' +
 }
+ganti() {
+  sed -i -e "s/$2/$3/g" $1
+}
 kubectl () {
     command kubectl $*
     if [[ -z $KUBECTL_COMPLETE ]]
