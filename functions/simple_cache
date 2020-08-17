@@ -1,0 +1,15 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 1 )); then
+    print -u2 "usage: ${0} <folder>..."
+    return 1
+fi
+
+if [ -d "$1" ]; then
+    rm -rfv "./${1}"
+    mkdir -p "/tmp/picobug/${1}"
+    ln -s "/tmp/picobug/${1}" "./${1}"
+fi

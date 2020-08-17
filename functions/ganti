@@ -1,0 +1,11 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 3 )); then
+  print -u2 "usage: ${0} <file> <origin> <replace>..."
+  return 1
+fi
+
+sed -i -e "s/$2/$3/g" $1

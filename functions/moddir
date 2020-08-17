@@ -1,0 +1,11 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 2 )); then
+  print -u2 "usage: ${0} <directory> <permission>..."
+  return 1
+fi
+
+find "${1}" -type d -exec chmod "${2}" {} +

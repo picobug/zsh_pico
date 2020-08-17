@@ -1,0 +1,11 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 1 )); then
+  print -u2 "usage: ${0} <directory/file>..."
+  return 1
+fi
+
+find . -name "${1}" -type d -prune -exec rm -rfv '{}' +
