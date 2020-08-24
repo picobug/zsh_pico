@@ -48,5 +48,8 @@ fi
 if [[ "$(command -v starship)" ]]; then
   eval "$(starship init zsh)"
 fi
+if [[ "$(command -v fnm)" ]]; then
+  eval "`fnm env --multi`"
+fi
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
