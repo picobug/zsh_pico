@@ -49,6 +49,8 @@ if [[ "$(command -v starship)" ]]; then
   eval "$(starship init zsh)"
 fi
 if [[ "$(command -v fnm)" ]]; then
+  unalias -m 'nvm'
+  alias nvm='fnm'
   eval "`fnm env --multi`"
 fi
 #eval "$(heroku autocomplete:script zsh)"
