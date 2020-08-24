@@ -29,5 +29,21 @@ export VIRTUALBOX_HOSTONLY_CIDR="192.168.99.1/24"
 export EDITOR="/usr/bin/vi"
 export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 zstyle ':completion:*:*:*:*:*' menu select
+if [ "$(command -v exa)" ]; then
+  unalias -m 'll'
+  unalias -m 'l'
+  unalias -m 'la'
+  unalias -m 'ls'
+  alias ls='exa -G  --color auto --icons -a -s type'
+  alias ll='exa -l --color always --icons -a -s type'
+fi
+if [ "$(command -v bat)" ]; then
+  unalias -m 'cat'
+  alias cat='bat -pp --theme="Nord"'
+fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1

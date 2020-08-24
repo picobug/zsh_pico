@@ -9,7 +9,8 @@ zmodule tj/git-extras --name zsh-extras --source etc/git-extras-completion.zsh
 zmodule picobug/zsh_pico --name zsh-picobug
 zmodule lukechilds/zsh-nvm --name zsh-nvm
 zmodule mattberther/zsh-pyenv --name zsh-pyenv
-zmodule denysdovhan/spaceship-prompt --name spaceship
+zmodule denysdovhan/spaceship-prompt --name spaceship // theme
+zmodule romkatv/powerlevel10k // theme
 ```
 
 ## My ZSH ENV
