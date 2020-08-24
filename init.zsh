@@ -45,5 +45,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ "$(command -v starship)" ]]; then
+  eval "$(starship init zsh)"
+fi
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
