@@ -1,0 +1,45 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 1 )); then
+  print -u2 "usage: ${0} <1|2|3|4>..."
+  return 1
+fi
+
+target=1
+name="PageCache"
+if [[ "$1" -eq 2 ]]; then
+    target=$1
+    name="Dentries and Inodes"
+fi
+if [[ "$1" -eq 3 ]]; then
+    target=$1
+    name="PageCache, Dentries and Inodes"
+fi
+if [[ "$1" -eq 4 ]]; then
+    target=$1
+    name="Yarn, NPM and PNPM"
+fi
+echo "Drop Cache $name"
+if [[ "$target" -lt 4 ]]; then
+    sudo bash <<EOF
+    sync; echo $target > /proc/sys/vm/drop_caches
+    EOF
+fi
+if [[ "$target" -eq 4 ]]; then
+    if [[ "$(command -v npm)" ]]; then
+        npm cache clean --force
+        echo "Finish NPM Clean Cache"
+    fi
+    if [[ "$(command -v yarn)" ]]; then
+        yarn cache clean
+        echo "Finish Yarn Clean Cache"
+    fi
+    if [[ "$(command -v pnpm)" ]]; then
+        pnpm store prune
+        echo "Finish PNPM Clean Cache"
+    fi
+fi
+echo "Finish Drop Cache $name"
