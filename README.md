@@ -33,4 +33,15 @@ export NVM_NODEJS_ORG_MIRROR=https://nodejs.org/dist
 modiar(){
   fuser -n tcp "$1" | awk '{ print $2 }' | xargs -r kill
 }
+ccache(){
+  if [[ "$(command -v npm)" ]]; then
+    npm cache clean --force
+  fi
+  if [[ "$(command -v yarn)" ]]; then
+    yarn cache clean
+  fi
+  if [[ "$(command -v pnpm)" ]]; then
+    pnpm store prune
+  fi
+}
 ```
