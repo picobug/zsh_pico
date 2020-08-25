@@ -26,7 +26,7 @@ echo "Drop Cache $name"
 if [[ "$target" -lt 4 ]]; then
     sudo bash <<EOF
     sync; echo $target > /proc/sys/vm/drop_caches
-    EOF
+EOF
 fi
 if [[ "$target" -eq 4 ]]; then
     if [[ "$(command -v npm)" ]]; then
