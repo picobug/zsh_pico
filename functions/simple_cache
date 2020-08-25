@@ -10,6 +10,6 @@ fi
 
 if [ -d "$1" ]; then
     rm -rfv "./${1}"
-    mkdir -p "/tmp/picobug/${1}"
-    ln -s "/tmp/picobug/${1}" "./${1}"
+    mkdir -p "/tmp/$(whoami)/${1}"
+    ln -s "/tmp/$(whoami)/${1}" "./${1}"
 fi

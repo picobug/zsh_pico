@@ -6,7 +6,8 @@
 CONFIG = "$HOME/.config"
 if[ -d "$CONFIG/Code"]; then
     rm -rfv "$CONFIG/Code/Cache"
-    ln -s /tmp/picobug "$CONFIG/Code/Cache"
+    mkdir -p "/tmp/$(whoami)"
+    ln -s "/tmp/$(whoami)" "$CONFIG/Code/Cache"
 fi
 if[ -d "./node_modules" ]; then
     rm -rfv ./node_modules/**/**/.cache/**
