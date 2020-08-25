@@ -27,7 +27,9 @@ export VIRTUALBOX_DISK_SIZE="2048"
 export VIRTUALBOX_MEMORY_SIZE="768"
 export VIRTUALBOX_HOSTONLY_CIDR="192.168.99.1/24"
 export EDITOR="/usr/bin/vi"
-export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+if [ "$(command -v mkcert)" ]; then
+  export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+fi
 zstyle ':completion:*:*:*:*:*' menu select
 if [ "$(command -v exa)" ]; then
   unalias -m 'll'
