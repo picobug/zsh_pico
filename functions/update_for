@@ -8,7 +8,7 @@ if (( # < 1 )); then
   return 1
 fi
 
-if [[ "$1" -eq "fnm" ]]; then
+if [[ "$1" == "fnm" ]]; then
     if [[ "$(command -v fnm)" ]]; then
         target=$(which fnm)
         dir=${pathFnm/\/fnm/}
@@ -20,7 +20,7 @@ if [[ "$1" -eq "fnm" ]]; then
     echo "Finish Update Fnm"
 fi
 
-if [[ "$1" -eq "starship" ]]; then
+if [[ "$1" == "starship" ]]; then
     if [[ "$(command -v starship)" ]]; then
         target=$(which fnm)
         dir=${pathFnm/\/fnm/}
@@ -28,6 +28,6 @@ if [[ "$1" -eq "starship" ]]; then
         mkdir -p "$HOME/.bin"
         dir="$HOME/.bin"
     fi
-    curl -fsSL https://starship.rs/install.sh | bash -s -- -b -f "$dir"
+    curl -fsSL https://starship.rs/install.sh | bash -s -- -b "$dir" -f
     echo "Finish Update Starship"
 fi
