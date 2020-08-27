@@ -1,0 +1,33 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 1 )); then
+  print -u2 "usage: ${0} <program>..."
+  return 1
+fi
+
+if [[ "$1" -eq "fnm" ]]; then
+    if [[ "$(command -v fnm)" ]]; then
+        target=$(which fnm)
+        dir=${pathFnm/\/fnm/}
+    else
+        mkdir -p "$HOME/.bin"
+        dir="$HOME/.bin"
+    fi
+    curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --install-dir "$dir" --skip-shell
+    echo "Finish Update Fnm"
+fi
+
+if [[ "$1" -eq "starship" ]]; then
+    if [[ "$(command -v starship)" ]]; then
+        target=$(which fnm)
+        dir=${pathFnm/\/fnm/}
+    else
+        mkdir -p "$HOME/.bin"
+        dir="$HOME/.bin"
+    fi
+    curl -fsSL https://starship.rs/install.sh | bash -s -- -b -f "$dir"
+    echo "Finish Update Starship"
+fi

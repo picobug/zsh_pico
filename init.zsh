@@ -53,7 +53,7 @@ fi
 if [[ "$(command -v fnm)" ]]; then
   unalias -m 'nvm'
   alias nvm='fnm'
-  eval "`fnm env --multi`"
+  eval "$(fnm env --multi --use-on-cd)"
 fi
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
