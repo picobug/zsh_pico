@@ -22,8 +22,8 @@ fi
 
 if [[ "$1" == "starship" ]]; then
     if [[ "$(command -v starship)" ]]; then
-        target=$(which fnm)
-        dir=${pathFnm/\/fnm/}
+        pathStart=$(which starship)
+        dir=${pathStart/\/starship/}
     else
         mkdir -p "$HOME/.bin"
         dir="$HOME/.bin"
