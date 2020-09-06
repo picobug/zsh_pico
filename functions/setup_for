@@ -1,0 +1,25 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Unarchives files
+#
+
+if (( # < 2 )); then
+  print -u2 "usage: ${0} <project> <dir>..."
+  return 1
+fi
+
+if [[ "$1" == "laravel" ]]; then
+    if [[ "$(command -v composer)" ]]; then
+        composer create-project --prefer-dist laravel/laravel ${2}
+    else
+        echo "Composer doesn't exist..."
+    fi
+fi
+
+if [[ "$1" == "lumen" ]]; then
+    if [[ "$(command -v composer)" ]]; then
+        composer create-project --prefer-dist laravel/lumen ${2}
+    else
+        echo "Composer doesn't exist..."
+    fi
+fi
