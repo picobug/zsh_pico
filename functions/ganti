@@ -4,8 +4,11 @@
 #
 
 if (( # < 3 )); then
-  print -u2 "usage: ${0} <file> <origin> <replace>..."
+  print -u2 "usage: ${0} <file|-d> <origin> <replace>..."
   return 1
 fi
-
-sed -i 's,'"$2"','"$3"',g' "$1"
+if [[ $1 === '-d' ]] ; then
+  find ./ -type f -exec sed -i 's,'"$2"','"$3"',g' {} \;
+else
+  sed -i 's,'"$2"','"$3"',g' "$1"
+fi
