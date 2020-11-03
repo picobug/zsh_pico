@@ -31,3 +31,8 @@ if [[ "$1" == "starship" ]]; then
     curl -fsSL https://starship.rs/install.sh | bash -s -- -b "$dir" -f
     echo "Finish Update Starship"
 fi
+
+if [[ "$1" == "phpcs" ]]; then
+    curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o "$HOME/.bin/phpcs" && chmod +x "$HOME/.bin/phpcs"
+    curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar -o "$HOME/.bin/phpcbf" && chmod +x "$HOME/.bin/phpcbf"
+fi
