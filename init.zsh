@@ -26,7 +26,7 @@ SPACESHIP_TIME_SHOW=true
 export VIRTUALBOX_DISK_SIZE="2048"
 export VIRTUALBOX_MEMORY_SIZE="768"
 export VIRTUALBOX_HOSTONLY_CIDR="192.168.99.1/24"
-export EDITOR="/usr/bin/vi"
+export EDITOR="/usr/bin/vim"
 if [ "$(command -v mkcert)" ]; then
   export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 fi
@@ -36,8 +36,8 @@ if [ "$(command -v exa)" ]; then
   unalias -m 'l'
   unalias -m 'la'
   unalias -m 'ls'
-  alias ls='exa -G  --color auto --icons -a -s type'
-  alias ll='exa -l --color always --icons -a -s type'
+  alias ls='exa -G  --color auto --icons --git -a -s type'
+  alias ll='exa -l --color always --icons --git -a -s type'
 fi
 if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
