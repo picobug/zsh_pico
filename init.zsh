@@ -26,7 +26,20 @@ SPACESHIP_TIME_SHOW=true
 export VIRTUALBOX_DISK_SIZE="2048"
 export VIRTUALBOX_MEMORY_SIZE="768"
 export VIRTUALBOX_HOSTONLY_CIDR="192.168.99.1/24"
-export EDITOR="/usr/bin/vim"
+if [ "$(command -v nano)" ]; then
+  export EDITOR="$(which nano)"
+fi
+unalias -m 'vi'
+unalias -m 'vim'
+if [ "$(command -v vim)" ]; then
+  export EDITOR="$(which vim)"
+  alias vi="vim"
+fi
+if [ "$(command -v nvim)" ]; then
+  export EDITOR="$(which nvim)"
+  alias vi="nvim"
+  alias vim="nvim"
+fi
 if [ "$(command -v mkcert)" ]; then
   export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 fi
