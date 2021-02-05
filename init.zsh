@@ -29,6 +29,8 @@ export VIRTUALBOX_HOSTONLY_CIDR="192.168.99.1/24"
 if [ "$(command -v nano)" ]; then
   export EDITOR="$(which nano)"
 fi
+unalias -m 'sudo'
+alias sudo='sudo '
 unalias -m 'vi'
 unalias -m 'vim'
 if [ "$(command -v vim)" ]; then
