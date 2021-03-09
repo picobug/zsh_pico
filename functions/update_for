@@ -1,6 +1,6 @@
 # vim:et sts=2 sw=2 ft=zsh
 #
-# Unarchives files
+# Update Program
 #
 
 if (( # < 1 )); then
@@ -35,4 +35,8 @@ fi
 if [[ "$1" == "phpcs" ]]; then
     curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o "$HOME/.bin/phpcs" && chmod +x "$HOME/.bin/phpcs"
     curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar -o "$HOME/.bin/phpcbf" && chmod +x "$HOME/.bin/phpcbf"
+fi
+
+if [[ "$1" == "all" ]]; then
+    update_for fnm && update_for starship && update_for phpcs
 fi

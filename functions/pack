@@ -1,0 +1,16 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Packing with ZST
+#
+
+if (( # < 1 )); then
+  print -u2 "usage: ${0} <archive.tar.zst> <files/folder>..."
+  return 1
+fi
+
+if [ -z "$2" ]
+then
+    tar --zstd --help &>/dev/null && env XZ_OPT=-T0 tar --zstd -xvf "${1}"
+else
+    tar --zstd --help &>/dev/null && env XZ_OPT=-T0 tar --zstd -cvf "${@}"
+fi

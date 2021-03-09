@@ -5,12 +5,11 @@ ZimFramework with ZSH for my daily use is awesome tool, maybe you will use it an
 ## My ZimFW Config
 
 ```sh
+zmodule exa
+zmodule petervanderdoes/git-flow-completion --name zsh-gitflow --source git-flow-completion.zsh
 zmodule tj/git-extras --name zsh-extras --source etc/git-extras-completion.zsh
 zmodule picobug/zsh_pico --name zsh-picobug
-zmodule lukechilds/zsh-nvm --name zsh-nvm
 zmodule mattberther/zsh-pyenv --name zsh-pyenv
-zmodule denysdovhan/spaceship-prompt --name spaceship // theme
-zmodule romkatv/powerlevel10k // theme
 ```
 
 ## My ZSH ENV

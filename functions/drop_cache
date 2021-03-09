@@ -1,6 +1,6 @@
 # vim:et sts=2 sw=2 ft=zsh
 #
-# Unarchives files
+# Drop Page Cache
 #
 
 if (( # < 1 )); then

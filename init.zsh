@@ -26,6 +26,9 @@ SPACESHIP_TIME_SHOW=true
 export VIRTUALBOX_DISK_SIZE="2048"
 export VIRTUALBOX_MEMORY_SIZE="768"
 export VIRTUALBOX_HOSTONLY_CIDR="192.168.99.1/24"
+if [ "$(command -v meld)" ]; then
+  export DIFFPROG=meld
+fi
 if [ "$(command -v nano)" ]; then
   export EDITOR="$(which nano)"
 fi
@@ -46,14 +49,14 @@ if [ "$(command -v mkcert)" ]; then
   export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 fi
 zstyle ':completion:*:*:*:*:*' menu select
-if [ "$(command -v exa)" ]; then
-  unalias -m 'll'
-  unalias -m 'l'
-  unalias -m 'la'
-  unalias -m 'ls'
-  alias ls='exa -G  --color auto --icons --git -a -s type'
-  alias ll='exa -l --color always --icons --git -a -s type'
-fi
+# if [ "$(command -v exa)" ]; then
+#   unalias -m 'll'
+#   unalias -m 'l'
+#   unalias -m 'la'
+#   unalias -m 'ls'
+#   alias ls='exa -G  --color auto --icons --git -a -s type'
+#   alias ll='exa -l --color always --icons --git -a -s type'
+# fi
 if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
   alias cat='bat -pp --theme="Nord"'
