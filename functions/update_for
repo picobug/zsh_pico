@@ -10,13 +10,16 @@ fi
 
 if [[ "$1" == "fnm" ]]; then
     if [[ "$(command -v fnm)" ]]; then
-        target=$(which fnm)
+        pathFnm=$(which fnm)
         dir=${pathFnm/\/fnm/}
     else
         mkdir -p "$HOME/.bin"
         dir="$HOME/.bin"
     fi
-    curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --install-dir "$dir" --skip-shell
+    curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$dir" --skip-shell
+    if [ -f ~/.zfunc/_fnm ]; then
+      rm -f ~/.zfunc/_fnm
+    fi
     echo "Finish Update Fnm"
 fi
 

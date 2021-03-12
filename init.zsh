@@ -69,9 +69,13 @@ if [[ "$(command -v starship)" ]]; then
   eval "$(starship init zsh)"
 fi
 if [[ "$(command -v fnm)" ]]; then
-  unalias -m 'nvm'
-  alias nvm='fnm'
-  eval "$(fnm env --multi --use-on-cd)"
+  eval "$(fnm env --shell=zsh --use-on-cd)"
+  mkdir -p ~/.zfunc
+  if [ ! -f ~/.zfunc/_fnm ]; then
+    fnm completions --shell=zsh > ~/.zfunc/_fnm
+  fi
 fi
+fpath+=~/.zfunc
+compinit
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
