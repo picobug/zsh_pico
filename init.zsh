@@ -61,14 +61,12 @@ if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
   alias cat='bat -pp --theme="Nord"'
 fi
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 if [[ "$(command -v starship)" ]]; then
   eval "$(starship init zsh)"
 fi
 if [[ "$(command -v fnm)" ]]; then
+  unalias -m 'nvm'
+  alias nvm='fnm'
   eval "$(fnm env --shell=zsh --use-on-cd)"
   mkdir -p ~/.zfunc
   if [ ! -f ~/.zfunc/_fnm ]; then
