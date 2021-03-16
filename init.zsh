@@ -67,7 +67,7 @@ fi
 if [[ "$(command -v fnm)" ]]; then
   unalias -m 'nvm'
   alias nvm='fnm'
-  eval "$(fnm env --shell=zsh --use-on-cd)"
+  eval "$(fnm env --use-on-cd)"
   mkdir -p ~/.zfunc
   if [ ! -f ~/.zfunc/_fnm ]; then
     fnm completions --shell=zsh > ~/.zfunc/_fnm
