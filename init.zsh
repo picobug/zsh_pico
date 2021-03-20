@@ -71,9 +71,10 @@ if [[ "$(command -v fnm)" ]]; then
   mkdir -p ~/.zfunc
   if [ ! -f ~/.zfunc/_fnm ]; then
     fnm completions --shell=zsh > ~/.zfunc/_fnm
+  else
+    fpath+=~/.zfunc
+    compinit
   fi
 fi
-fpath+=~/.zfunc
-compinit
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
