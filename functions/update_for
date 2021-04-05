@@ -41,10 +41,12 @@ if [[ "$1" == "phpcs" ]]; then
 fi
 
 if [[ "$1" == "doggo" ]]; then
+    current="$(pwd)"
     cd "$(mktemp -d)"
     curl -sL "https://github.com/mr-karan/doggo/releases/download/v$2/doggo_$2_linux_amd64.tar.gz" | tar xz
     mv doggo "$HOME/.bin"
     echo "Finish Update Doggo"
+    cd "$current"
 fi
 
 if [[ "$1" == "all" ]]; then
