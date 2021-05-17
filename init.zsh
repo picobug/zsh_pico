@@ -76,5 +76,8 @@ if [[ "$(command -v fnm)" ]]; then
     compinit
   fi
 fi
+if [[ "$(command -v pyenv)" ]]; then
+  eval "$(pyenv init - --no-rehash zsh)"
+fi
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
