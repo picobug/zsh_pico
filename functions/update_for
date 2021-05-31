@@ -40,6 +40,11 @@ if [[ "$1" == "phpcs" ]]; then
     curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar -o "$HOME/.bin/phpcbf" && chmod +x "$HOME/.bin/phpcbf"
 fi
 
+if [[ "$1" == "kubeup" ]]; then
+    curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && mv minikube "$HOME/.bin/minikube"
+    curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl "$HOME/.bin/kubectl"
+fi
+
 if [[ "$1" == "doggo" ]]; then
     current="$(pwd)"
     cd "$(mktemp -d)"

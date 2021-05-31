@@ -79,5 +79,25 @@ fi
 if [[ "$(command -v pyenv)" ]]; then
   eval "$(pyenv init - --no-rehash zsh)"
 fi
+if [[ "$(command -v kubectl)" ]]; then
+  kubectl () {
+    command kubectl $*
+    if [[ -z $KUBECTL_COMPLETE ]]
+    then
+      source <(command kubectl completion zsh)
+      KUBECTL_COMPLETE=1 
+    fi
+  }
+fi
+if [[ "$(command -v minikube)" ]]; then
+  minikube () {
+    command minikube $*
+    if [[ -z $MINIKUBE_COMPLETE ]]
+    then
+      source <(command minikube completion zsh)
+      MINIKUBE_COMPLETE=1 
+    fi
+  }
+fi
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
