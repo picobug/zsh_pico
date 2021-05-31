@@ -61,6 +61,10 @@ if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
   alias cat='bat -pp --theme="Nord"'
 fi
+if [ "$(command -v batcat)" ]; then
+  unalias -m 'cat'
+  alias cat='batcat -pp --theme="Nord"'
+fi
 if [[ "$(command -v starship)" ]]; then
   eval "$(starship init zsh)"
 fi
