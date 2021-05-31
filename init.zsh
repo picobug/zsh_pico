@@ -71,10 +71,9 @@ if [[ "$(command -v fnm)" ]]; then
   mkdir -p ~/.zfunc
   if [ ! -f ~/.zfunc/_fnm ]; then
     fnm completions --shell=zsh > ~/.zfunc/_fnm
-  else
-    fpath+=~/.zfunc
-    compinit
   fi
+  fpath+=~/.zfunc
+  compinit
 fi
 if [[ "$(command -v pyenv)" ]]; then
   eval "$(pyenv init - --no-rehash zsh)"
