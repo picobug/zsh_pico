@@ -132,11 +132,12 @@ $excludes = [
     'node_modules',
 ];
 
-$project_path = getcwd();
 $finder = Finder::create()
     ->in([__DIR__])
     ->name('*.php')
     ->notName('*.blade.php')
+    ->notName('*Listing*.php')
+    ->size('< 100K')
     ->exclude($excludes)
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
