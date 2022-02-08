@@ -31,7 +31,8 @@ if [[ "$1" == "starship" ]]; then
         mkdir -p "$HOME/.bin"
         dir="$HOME/.bin"
     fi
-    curl -fsSL https://starship.rs/install.sh | bash -s -- -b "$dir" -f
+    sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -b "$dir" -f
+    # curl -fsSL https://starship.rs/install.sh | bash -s -- -b "$dir" -f
     echo "Finish Update Starship"
 fi
 
