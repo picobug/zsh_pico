@@ -55,6 +55,12 @@ if [[ "$1" == "doggo" ]]; then
     cd "$current"
 fi
 
+if [[ "$1" == "machine" ]]; then
+  curl -O "https://gitlab-docker-machine-downloads.s3.amazonaws.com/v0.16.2-gitlab.11/docker-machine-Linux-x86_64"
+  mv docker-machine-Linux-x86_64 ~/.bin/docker-machine
+  chmod +x ~/.bin/docker-machine
+fi
+
 if [[ "$1" == "all" ]]; then
     update_for fnm && update_for starship && update_for phpcs
 fi
