@@ -49,14 +49,26 @@ fi
 if [[ "$1" == "doggo" ]]; then
     current="$(pwd)"
     cd "$(mktemp -d)"
-    curl -sL "https://github.com/mr-karan/doggo/releases/download/v$2/doggo_$2_linux_amd64.tar.gz" | tar xz
+    version="$(git ls-remote --tags https://github.com/mr-karan/doggo.git | cut -d/ -f3- | tail -n1 | sed 's/v//g';)"
+    curl -sL "https://github.com/mr-karan/doggo/releases/download/v$version/doggo_$version_linux_amd64.tar.gz" | tar xz
     mv doggo "$HOME/.bin"
     echo "Finish Update Doggo"
     cd "$current"
 fi
 
+if [[ "$1" == "xxh" ]]; then
+    current="$(pwd)"
+    cd "$(mktemp -d)"
+    version="$(git ls-remote --tags https://github.com/xxh/xxh.git | cut -d/ -f3- | tail -n1;)"
+    wget "https://github.com/xxh/xxh/releases/download/$version/xxh-portable-musl-alpine-Linux-x86_64.tar.gz"
+    tar -xzf xxh-portable-musl-alpine-Linux-x86_64.tar.gz
+    mv xxh "$HOME/.bin"
+    echo "Finish Update XXH"
+    cd "$current"
+fi
+
 if [[ "$1" == "machine" ]]; then
-  curl -O "https://gitlab-docker-machine-downloads.s3.amazonaws.com/v0.16.2-gitlab.11/docker-machine-Linux-x86_64"
+  curl -O "https://gitlab-docker-machine-downloads.s3.amazonaws.com/main/docker-machine-Linux-x86_64"
   mv docker-machine-Linux-x86_64 ~/.bin/docker-machine
   chmod +x ~/.bin/docker-machine
 fi
@@ -64,3 +76,4 @@ fi
 if [[ "$1" == "all" ]]; then
     update_for fnm && update_for starship && update_for phpcs
 fi
+
