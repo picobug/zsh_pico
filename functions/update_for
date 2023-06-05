@@ -48,23 +48,27 @@ fi
 
 if [[ "$1" == "doggo" ]]; then
     current="$(pwd)"
-    cd "$(mktemp -d)"
+    tmp="$(mktemp -d)"
+    cd "$tmp"
     version="$(git ls-remote --refs --sort="version:refname" --tags https://github.com/mr-karan/doggo.git | cut -d/ -f3- | tail -n1 | sed 's/v//g';)"
-    curl -sL "https://github.com/mr-karan/doggo/releases/download/v$version/doggo_$version_linux_amd64.tar.gz" | tar xz
+    curl -sL "https://github.com/mr-karan/doggo/releases/download/v${version}/doggo_${version}_linux_amd64.tar.gz" | tar xz
     mv doggo "$HOME/.bin"
     echo "Finish Update Doggo"
     cd "$current"
+    rm -rf "$tmp"
 fi
 
 if [[ "$1" == "xxh" ]]; then
     current="$(pwd)"
-    cd "$(mktemp -d)"
+    tmp="$(mktemp -d)"
+    cd "$tmp"
     version="$(git ls-remote --refs --sort="version:refname" --tags https://github.com/xxh/xxh.git | cut -d/ -f3- | tail -n1;)"
-    wget "https://github.com/xxh/xxh/releases/download/$version/xxh-portable-musl-alpine-Linux-x86_64.tar.gz"
+    wget "https://github.com/xxh/xxh/releases/download/${version}/xxh-portable-musl-alpine-Linux-x86_64.tar.gz"
     tar -xzf xxh-portable-musl-alpine-Linux-x86_64.tar.gz
     mv xxh "$HOME/.bin"
     echo "Finish Update XXH"
     cd "$current"
+    rm -rf "$tmp"
 fi
 
 if [[ "$1" == "machine" ]]; then
