@@ -87,6 +87,14 @@ if [[ "$(command -v gh)" ]]; then
   fpath+=~/.zfunc
   compinit
 fi
+if [[ "$(command -v glab)" ]]; then
+  mkdir -p ~/.zfunc
+  if [ ! -f ~/.zfunc/_glab ]; then
+    glab completion -s zsh >  ~/.zfunc/_glab
+  fi
+  fpath+=~/.zfunc
+  compinit
+fi
 if [[ "$(command -v pyenv)" ]]; then
   eval "$(pyenv init - --no-rehash zsh)"
 fi
