@@ -118,5 +118,12 @@ if [[ "$(command -v minikube)" ]]; then
     fi
   }
 fi
+if [[ "$(command -v pnpm)" ]]; then
+  export PNPM_HOME="/home/picobug/.local/share/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+fi
 #eval "$(heroku autocomplete:script zsh)"
 #export PHP_CS_FIXER_IGNORE_ENV=1
