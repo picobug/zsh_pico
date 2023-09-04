@@ -68,7 +68,7 @@ $rules = [
         'tokens' => [
             'extra',
             'throw',
-            'use',
+            'use_trait',
         ],
     ],
     'no_blank_lines_after_class_opening' => true,
@@ -102,13 +102,14 @@ $rules = [
         'statements' => ['break', 'clone', 'continue', 'echo_print', 'return', 'switch_case', 'yield'],
     ],
     'no_unreachable_default_argument_value' => true,
+    'no_unused_imports'                     => true,
     'no_useless_return'                     => true,
     'no_whitespace_before_comma_in_array'   => true,
     'no_whitespace_in_blank_line'           => true,
     'normalize_index_brace'                 => true,
     'not_operator_with_successor_space'     => true,
     'object_operator_without_whitespace'    => true,
-    'ordered_imports'                       => ['sort_algorithm' => 'alpha'],
+    'ordered_imports'                       => ['sort_algorithm' => 'alpha', 'imports_order' => ['const', 'class', 'function']],
     'psr_autoloading'                       => true,
     'phpdoc_indent'                         => true,
     'phpdoc_inline_tag_normalizer'          => true,
@@ -148,7 +149,7 @@ $rules = [
     'trim_array_spaces'              => true,
     'unary_operator_spaces'          => true,
     'visibility_required'            => [
-        'elements' => ['method', 'property'],
+        'elements' => ['method', 'property', 'const'],
     ],
     'whitespace_after_comma_in_array' => true,
 ];
