@@ -1,0 +1,16 @@
+# vim:et sts=2 sw=2 ft=zsh
+#
+# Change Text in File
+#
+if [[ "$(command -v docker)" ]]; then
+  caddy_id=$(docker ps | grep caddy | awk '{print $1;}' | cut -d: -f1)
+  for caddy in $caddy_id; do
+      echo $caddy
+      docker exec -w /etc/caddy $caddy caddy reload
+  done
+  nginx_id=$(docker ps | grep nginx | awk '{print $1;}' | cut -d: -f1)
+  for nginx in $nginx_id; do
+      echo $nginx
+      docker exec $nginx nginx -s reload
+  done
+fi
