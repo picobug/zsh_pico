@@ -77,7 +77,7 @@ if [[ "$(command -v fnm)" ]]; then
     fnm completions --shell=zsh > ~/.zfunc/_fnm
   fi
   fpath+=~/.zfunc
-  compinit
+  # compinit
 fi
 if [[ "$(command -v gh)" ]]; then
   mkdir -p ~/.zfunc
@@ -85,7 +85,7 @@ if [[ "$(command -v gh)" ]]; then
     gh completion -s zsh >  ~/.zfunc/_gh
   fi
   fpath+=~/.zfunc
-  compinit
+  # compinit
 fi
 if [[ "$(command -v glab)" ]]; then
   mkdir -p ~/.zfunc
@@ -93,7 +93,7 @@ if [[ "$(command -v glab)" ]]; then
     glab completion -s zsh >  ~/.zfunc/_glab
   fi
   fpath+=~/.zfunc
-  compinit
+  # compinit
 fi
 if [[ "$(command -v pyenv)" ]]; then
   eval "$(pyenv init - --no-rehash zsh)"
