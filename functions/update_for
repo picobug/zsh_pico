@@ -8,7 +8,7 @@ if (( # < 1 )); then
   return 1
 fi
 
-if [[ "$i" == "docker"]]; then
+if [[ "$1" == "docker" ]]; then
     docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
 fi
 
