@@ -89,7 +89,7 @@ if [[ "$(command -v gh)" ]]; then
 fi
 if [[ "$(command -v doggo)" ]]; then
   mkdir -p ~/.zfunc
-  if [ ! -f ~/.zfunc/_gh ]; then
+  if [ ! -f ~/.zfunc/_doggo ]; then
     doggo completions zsh > ~/.zfunc/_doggo
   fi
   fpath+=~/.zfunc
