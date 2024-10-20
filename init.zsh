@@ -116,6 +116,6 @@ if [[ "$(command -v pnpm)" ]]; then
     *) export PATH="$PNPM_HOME:$PATH" ;;
   esac
 fi
-if [[ -d "~/.zfunc/completions" ]]; then
+if [[ -d ~/.zfunc/completions ]]; then
   fpath+=~/.zfunc/completions
 fi
