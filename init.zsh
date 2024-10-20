@@ -25,22 +25,18 @@ SPACESHIP_PROMPT_ORDER=(
 SPACESHIP_TIME_SHOW=true
 export VIRTUALBOX_DISK_SIZE="2048"
 export VIRTUALBOX_MEMORY_SIZE="768"
-#export VIRTUALBOX_HOSTONLY_CIDR="192.168.56.0/21"
-if [ "$(command -v meld)" ]; then
-  export DIFFPROG=meld
-fi
-if [ "$(command -v nano)" ]; then
-  export EDITOR="$(which nano)"
-fi
 unalias -m 'sudo'
 alias sudo='sudo '
 unalias -m 'vi'
 unalias -m 'vim'
-if [ "$(command -v vim)" ]; then
+if [ "$(command -v meld)" ]; then
+  export DIFFPROG=meld
+elif [ "$(command -v nano)" ]; then
+  export EDITOR="$(which nano)"
+elif [ "$(command -v vim)" ]; then
   export EDITOR="$(which vim)"
   alias vi="vim"
-fi
-if [ "$(command -v nvim)" ]; then
+elif [ "$(command -v nvim)" ]; then
   export EDITOR="$(which nvim)"
   alias vi="nvim"
   alias vim="nvim"
@@ -48,15 +44,6 @@ fi
 if [ "$(command -v mkcert)" ]; then
   export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 fi
-zstyle ':completion:*:*:*:*:*' menu select
-# if [ "$(command -v exa)" ]; then
-#   unalias -m 'll'
-#   unalias -m 'l'
-#   unalias -m 'la'
-#   unalias -m 'ls'
-#   alias ls='exa -G  --color auto --icons --git -a -s type'
-#   alias ll='exa -l --color always --icons --git -a -s type'
-# fi
 if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
   alias cat='bat -pp --theme="Nord"'
@@ -77,7 +64,6 @@ if [[ "$(command -v fnm)" ]]; then
     fnm completions --shell=zsh > ~/.zfunc/_fnm
   fi
   fpath+=~/.zfunc
-  # compinit
 fi
 if [[ "$(command -v gh)" ]]; then
   mkdir -p ~/.zfunc
@@ -85,7 +71,6 @@ if [[ "$(command -v gh)" ]]; then
     gh completion -s zsh >  ~/.zfunc/_gh
   fi
   fpath+=~/.zfunc
-  # compinit
 fi
 if [[ "$(command -v doggo)" ]]; then
   mkdir -p ~/.zfunc
@@ -93,7 +78,6 @@ if [[ "$(command -v doggo)" ]]; then
     doggo completions zsh > ~/.zfunc/_doggo
   fi
   fpath+=~/.zfunc
-  # compinit
 fi
 if [[ "$(command -v glab)" ]]; then
   mkdir -p ~/.zfunc
@@ -101,7 +85,6 @@ if [[ "$(command -v glab)" ]]; then
     glab completion -s zsh >  ~/.zfunc/_glab
   fi
   fpath+=~/.zfunc
-  # compinit
 fi
 if [[ "$(command -v pyenv)" ]]; then
   eval "$(pyenv init - --no-rehash zsh)"
@@ -133,5 +116,6 @@ if [[ "$(command -v pnpm)" ]]; then
     *) export PATH="$PNPM_HOME:$PATH" ;;
   esac
 fi
-#eval "$(heroku autocomplete:script zsh)"
-#export PHP_CS_FIXER_IGNORE_ENV=1
+if [[ -d "~/.zfunc/completions" ]]; then
+  fpath+=~/.zfunc/completions
+fi
