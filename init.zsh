@@ -31,19 +31,16 @@ unalias -m 'vi'
 unalias -m 'vim'
 if [ "$(command -v meld)" ]; then
   export DIFFPROG=meld
-elif [ "$(command -v vim)" ]; then
-  export EDITOR="$(which vim)"
-elif [ "$(command -v nvim)" ]; then
-  export EDITOR="$(which nvim)"
-elif [ "$(command -v nano)" ]; then
-  export EDITOR="$(which nano)"
-fi
-if [ "$(command -v vim)" ]; then
-  alias vi="vim"
 fi
 if [ "$(command -v nvim)" ]; then
+  export EDITOR="$(which nvim)"
   alias vi="nvim"
   alias vim="nvim"
+elif [ "$(command -v vim)" ]; then
+  export EDITOR="$(which vim)"
+  alias vi="vim"
+elif [ "$(command -v nano)" ]; then
+  export EDITOR="$(which nano)"
 fi
 if [ "$(command -v mkcert)" ]; then
   export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
