@@ -41,8 +41,8 @@ if [[ "$1" == "starship" ]]; then
 fi
 
 if [[ "$1" == "phpcs" ]]; then
-    curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o "$HOME/.bin/phpcs" && chmod +x "$HOME/.bin/phpcs"
-    curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar -o "$HOME/.bin/phpcbf" && chmod +x "$HOME/.bin/phpcbf"
+    curl -L https://phars.phpcodesniffer.com/phpcs.phar -o "$HOME/.bin/phpcs" && chmod +x "$HOME/.bin/phpcs"
+    curl -L https://phars.phpcodesniffer.com/phpcbf.phar -o "$HOME/.bin/phpcbf" && chmod +x "$HOME/.bin/phpcbf"
     curl -L https://cs.symfony.com/download/php-cs-fixer-v3.phar -o "$HOME/.bin/php-cs-fixer" && chmod +x "$HOME/.bin/php-cs-fixer"
     curl -L https://getcomposer.org/download/latest-stable/composer.phar -o "$HOME/.bin/composer" && chmod +x "$HOME/.bin/composer"
 fi
