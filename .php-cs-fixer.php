@@ -1,7 +1,6 @@
 <?php
 
-use PhpCsFixer\Config;
-use PhpCsFixer\Finder;
+use PhpCsFixer\{Config, Finder};
 
 $rules = [
     'array_indentation'      => true,
@@ -45,6 +44,7 @@ $rules = [
     'function_declaration'                    => true,
     'function_typehint_space'                 => true,
     'general_phpdoc_tag_rename'               => true,
+    'group_import'                            => true,
     'heredoc_to_nowdoc'                       => true,
     'include'                                 => true,
     'increment_style'                         => ['style' => 'post'],
@@ -131,7 +131,7 @@ $rules = [
     'single_class_element_per_statement'    => [
         'elements' => ['const', 'property'],
     ],
-    'single_import_per_statement' => true,
+    'single_import_per_statement' => false,
     'single_line_after_imports'   => true,
     'single_line_comment_style'   => [
         'comment_types' => ['hash'],
