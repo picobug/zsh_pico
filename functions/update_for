@@ -12,6 +12,10 @@ if [[ "$1" == "docker" ]]; then
     docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
 fi
 
+if [[ "$1" == "podman" ]]; then
+    podman images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 podman pull
+fi
+
 if [[ "$1" == "fnm" ]]; then
     if [[ "$(command -v fnm)" ]]; then
         pathFnm=$(which fnm)
