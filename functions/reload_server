@@ -14,3 +14,15 @@ if [[ "$(command -v docker)" ]]; then
       docker exec $nginx nginx -s reload
   done
 fi
+if [[ "$(command -v podman)" ]]; then
+  caddy_id=$(podman ps | grep caddy | awk '{print $1;}' | cut -d: -f1)
+  for caddy in $caddy_id; do
+      echo $caddy
+      podman exec -w /etc/caddy $caddy caddy reload
+  done
+  nginx_id=$(podman ps | grep nginx | awk '{print $1;}' | cut -d: -f1)
+  for nginx in $nginx_id; do
+      echo $nginx
+      podman exec $nginx nginx -s reload
+  done
+fi
