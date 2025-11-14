@@ -9,7 +9,7 @@ if (( # < 1 )); then
 fi
 
 if [[ "$1" == "docker" ]]; then
-    docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
+    docker images --format=table | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L1 docker pull
 fi
 
 if [[ "$1" == "podman" ]]; then
