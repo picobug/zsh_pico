@@ -67,8 +67,8 @@ if [[ "$1" == "doggo" ]]; then
     fi
     cd "$tmp"
     version="$(git ls-remote --refs --sort="version:refname" --tags https://github.com/mr-karan/doggo.git | cut -d/ -f3- | tail -n1 | sed 's/v//g';)"
-    curl -sL "https://github.com/mr-karan/doggo/releases/download/v${version}/doggo_${version}_Linux_${arch}.tar.gz" | tar xz
-    mv "./doggo_${version}_Linux_${arch}/doggo" "$HOME/.bin"
+    curl -sL "https://github.com/mr-karan/doggo/releases/download/v${version}/doggo-linux-${arch}.tar.gz" | tar xz
+    mv "./doggo" "$HOME/.bin"
     echo "Finish Update Doggo"
     cd "$current"
     rm -rf "$tmp"
@@ -80,7 +80,7 @@ if [[ "$1" == "phpantom_lsp" ]]; then
     arch="$(uname -m)"
     cd "$tmp"
     version="$(git ls-remote --refs --sort="version:refname" --tags https://github.com/PHPantom-dev/phpantom_lsp.git | cut -d/ -f3- | tail -n1 | sed 's/v//g';)"
-    curl -sL "https://github.com/PHPantom-dev/phpantom_lsp/releases/download/${version}/phpantom_lsp-${arch}-unknown-linux-gnu.tar.gz " | tar xz
+    curl -sL "https://github.com/PHPantom-dev/phpantom_lsp/releases/download/${version}/phpantom_lsp-${arch}-unknown-linux-gnu.tar.gz" | tar xz
     mv "./phpantom_lsp" "$HOME/.bin"
     echo "Finish Update PHPantom LSP"
     cd "$current"
