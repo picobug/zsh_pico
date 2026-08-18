@@ -114,9 +114,10 @@ if [[ "$1" == "ai" ]]; then
   curl -fsSL https://jcode.sh/install | bash
   curl -fsSL https://ocx.kdco.dev/install.sh | sh
   curl -fsSL https://maki.sh/install.sh | sh
+  curl -fsSL https://raw.githubusercontent.com/Gitlawb/zero/main/scripts/install.sh | bash
 fi
 
 if [[ "$1" == "all" ]]; then
-    update_for fnm && update_for starship && update_for phpcs && update_for doggo && update_for phpantom_lsp && update_for ai
+    update_for fnm && update_for starship && update_for phpcs && update_for doggo && update_for phpantom_lsp
 fi
 
