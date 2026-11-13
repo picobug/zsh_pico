@@ -113,7 +113,7 @@ if [[ "$1" == "ai" ]]; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
   curl -fsSL https://jcode.sh/install | bash
   curl -fsSL https://maki.sh/install.sh | sh
-  curl -fsSL https://raw.githubusercontent.com/Gitlawb/zero/main/scripts/install.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/Twigpine/zero/main/scripts/install.sh | bash
 fi
 
 if [[ "$1" == "all" ]]; then
