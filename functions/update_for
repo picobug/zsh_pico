@@ -111,7 +111,7 @@ if [[ "$1" == "ai" ]]; then
   curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
   curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
   curl -LsSf https://astral.sh/uv/install.sh | sh
-  curl -fsSL https://jcode.sh/install | bash
+  # curl -fsSL https://jcode.sh/install | bash
   curl -fsSL https://maki.sh/install.sh | sh
   curl -fsSL https://raw.githubusercontent.com/Twigpine/zero/main/scripts/install.sh | bash
 fi
